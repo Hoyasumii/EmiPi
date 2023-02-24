@@ -1,0 +1,7 @@
+#body {
+    background-color: var(--black-1);
+    display: flex;
+    flex-flow: column nowrap;
+    padding: 10px;
+    align-items: center;
+}

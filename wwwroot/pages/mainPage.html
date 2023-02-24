@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EmiPi - Music Player</title>
+    <link rel="stylesheet" href="../style/essential.css">
+    <link rel="stylesheet" href="../style/header.css">
+    <link rel="stylesheet" href="../style/main.css">
+    <link rel="stylesheet" href="../style/footer.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <script>
+        console.log(window.location.pathname)
+    </script>
+
+</head>
+<body>
+    
+    <header>
+        <h3 id="header-welcome">Boa tarde, Hoyasumii</h3>
+
+        <form action="#" method="post" id="search-bar-area">
+            <input type="text" id="search-bar" required>
+            <label for="search-bar" id="search-bar-label">pesquise para ouvir milhares de músicas</label>
+            <button id="search-bar-button" class="material-symbols-outlined">search</button>
+        </form>
+
+        <!-- <input type="text" id="search-bar" placeholder="search to listen to thousands of musics" size="75"> -->
+        <a href="#" id="account-anchor">
+            <img src="../img/UserIcon.png" alt="">
+        </a>
+    </header>
+
+    <main>
+        <section id="albums-area">
+
+            <div class="album-card">
+                <img src="../img/Meat Is Murder.jpg" alt="" class="album-card-icon">
+                <div>
+                    <strong class="album-card-title">Meat Is Murder</strong>
+                    <p class="album-card-subtitle">The Smiths</p>
+                </div>
+            </div>
+            <div class="album-card">
+                <img src="../img/Humanz.jfif" alt="" class="album-card-icon">
+                <div>
+                    <strong class="album-card-title">Humanz</strong>
+                    <p class="album-card-subtitle">Gorillaz</p>
+                </div>
+            </div>
+            <div class="album-card">
+                <img src="../img/Disintegration.jpg" alt="" class="album-card-icon">
+                <div>
+                    <strong class="album-card-title">Disintegration</strong>
+                    <p class="album-card-subtitle">The Cure</p>
+                </div>
+            </div>
+            <div class="album-card">
+                <img src="../img/In the Aeroplane Over the Sea.jpg" alt="" class="album-card-icon">
+                <div>
+                    <strong class="album-card-title">In the Aeroplane Over the Sea</strong>
+                    <p class="album-card-subtitle">Neutral Milk Hotel</p>
+                </div>
+            </div>
+            <div class="album-card">
+                <img src="../img/The Dark Side of the Moon.png" alt="" class="album-card-icon">
+                <div>
+                    <strong class="album-card-title">The Dark Side of the Moon</strong>
+                    <p class="album-card-subtitle">Pink Floyd</p>
+                </div>
+            </div>
+            <div class="album-card">
+                <img src="../img/Unknown Pleasures.jpg" alt="" class="album-card-icon">
+                <div>
+                    <strong class="album-card-title">Unknown Pleasures</strong>
+                    <p class="album-card-subtitle">Joy Division</p>
+                </div>
+            </div>
+        </section>
+
+        <aside id="album-info-area">
+            <div id="album-info">
+                <div id="album-info-header">
+                    <a href="#" id="close-button" class="material-symbols-outlined">close</a>
+                    <img src="../img/The Dark Side of the Moon.png" alt="" id="album-info-cover">
+                    <div class="album-info-text-info">
+                        <h2 id="album-info-title">The Dark Side of the Moon</h2>
+                        <button id="album-button-play">Ouvir</button>
+                    </div>
+                </div>
+                <div id="album-info-separator"></div>
+                <ol id="album-info-list">
+                    <li>Speak to Me - 1:05</li>
+                    <li>Breathe (In the Air) - 2:49</li>
+                    <li>On the Run - 3:45</li>
+                    <li>Time - 6:53</li>
+                    <li>The Great Gig in the Sky - 4:43</li>
+                    <li>Money - 6:22</li>
+                    <li>Us and Them - 7:49</li>
+                    <li>Any Colour You Like - 3:26</li>
+                    <li>Brain Damage - 3:46</li>
+                    <li>Eclipse - 2:10</li>
+                </ol>
+                <div id="album-info-separator"></div>
+                <p id="album-info-info" style="text-align: center;">Pink Floyd • 1973 • 10 músicas, 42min 53s</p>
+            </div>
+        </aside>
+
+    </main>
+
+    <footer>
+        <div id="current-music">
+            <img src="../img/With the Beatles.jpg" alt="" id="current-music-cover">
+            <div>
+                <strong id="current-music-title">Not A Second Time</strong>
+                <p id="current-music-artist">The Beatles</p>
+            </div>
+        </div>
+        
+        <div id="music-player">
+            <div id="music-player-controls">
+                <button class="material-symbols-outlined">shuffle</button>
+                <button class="material-symbols-outlined">skip_previous</button>
+                <button class="material-symbols-outlined">play_arrow</button>
+                <button class="material-symbols-outlined">skip_next</button>
+                <button class="material-symbols-outlined">repeat</button>
+            </div>
+            <div id="music-player-progress">
+                <span id="music-player-current-time">0:00</span>
+                <div id="music-player-bar">
+                    <div id="music-player-progress-bar"></div>
+                </div>
+                <span id="music-player-duration">1:00</span>
+                
+            </div>    
+        </div>
+
+        <div class="music-controls">
+            <!-- TODO: Add the volume controller -->
+        </div>
+
+        
+
+    </footer>
+
+</body>
+</html>

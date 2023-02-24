@@ -1,0 +1,133 @@
+main {
+    display: flex;
+    flex-flow: row wrap;
+    min-width: 100vw;
+    max-width: 100vw;
+    min-height: calc(100vh - 10vh - 10vh);
+}
+
+
+section {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    justify-items: center;
+    align-content: start;
+    grid-auto-flow: row;
+    gap: 10px;
+    padding: 15px;
+    width: calc(70vw - 15px - 15px);
+    min-height: calc(100vh - 10vh - 10vh);
+}
+
+.album-card {
+    width: fit-content;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    /* background-color: transparent; */
+    background-color: #1f1f1f;
+    box-shadow: 1px 1px 5px #0A0A0A;
+    transition: 0.3s background-color;
+    padding: 10px;
+}
+
+.album-card:hover {
+    background-color: #292929;
+    cursor: pointer;
+}
+
+.album-card:active {
+    background-color: #333;
+}
+
+.album-card-icon {
+    border-radius: 10px;
+    width: calc(((70vh - 15px - 15px) / 3) - 10px);
+    pointer-events: none; /* Removendo o ícone de busca virtual do Edge */
+}
+
+.album-card div {
+    width: calc(((70vh - 15px - 15px) / 3) - 10px);
+    margin-top: 10px;
+}
+
+#album-info-area {
+    width: calc(30vw);
+    min-height: calc(100vh - 10vh - 10vh);
+    max-height: calc(100vh - 10vh - 10vh);
+    padding: 15px 0px;
+    position: sticky;
+    top: 10vh;
+}
+
+#album-info {
+    height: 100%;
+    padding: 15px;
+    background-color: #1f1f1f;
+    box-shadow: 1px 1px 5px #0A0A0A;
+    border-radius: 15px;
+}
+
+#album-info-header {
+    display: flex;
+    align-items: flex-end;
+    gap: 15px;
+}
+
+#album-info-cover {
+    width: 50%;
+    border-radius: 15px;
+    object-fit: contain;
+}
+
+#album-info-separator {
+    height: 3px;
+    width: calc(100% - 15px - 15px);
+    margin: 15px;
+    background-color: #292929;
+    border-radius: 1px;
+}
+
+#album-info-list {
+    min-height: calc(100% - 50% - 3px - 15px - 15px);
+    max-height: calc(100% - 50% - 3px - 15px - 15px);
+    overflow-y: auto;
+    list-style-position: inside;
+    line-height: 1.5em;
+}
+
+#album-button-play {
+    margin-top: 10px;
+    background-color: #292929;
+    font-weight: 2em;
+    width: 100%;
+    padding: 5px 0px;
+    border-radius: 10px;
+    transition: 0.3s background-color;
+    box-shadow: 1px 1px 5px #141414;
+}
+
+#album-button-play:hover, #close-button:hover {
+    background-color: #333333;
+    cursor: pointer;    
+}
+
+#album-button-play:active, #close-button:active {
+    background-color: #3D3D3D;
+}
+
+#close-button {
+    position: absolute;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    border-radius: 50%;
+    top: 30px;
+    right: 15px;
+    width: 1.5em;
+    height: 1.5em;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
