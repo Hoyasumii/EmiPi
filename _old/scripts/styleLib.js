@@ -40,5 +40,4 @@ function setColors(className) {
     }
 }
 
-setColors(`container`);
 setColors(`button`);

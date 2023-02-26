@@ -1,1 +1,1 @@
-1. Na funcionalidade setColors, a seleção de cores se baseia na className e o elemento pai precisa de um id.
+1. Na estruturação de um site, além das classes informadas, o elemento também precisará de um id para que o setColors funcione
