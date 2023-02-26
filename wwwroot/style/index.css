@@ -1,10 +1,17 @@
-#body {
+#main-container {
     height: 100vh;
-    background-color: var(--black-1);
+    width: 100vw;
     display: flex;
     flex-flow: column nowrap;
-    padding: 10px;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     gap: 10px;
+}
+
+.container {
+    width: 100%;
+}
+
+#main-container .container {
+    padding: 15px;
 }

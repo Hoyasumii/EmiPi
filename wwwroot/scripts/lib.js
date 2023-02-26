@@ -1,3 +1,5 @@
+let backgroundPallete = ["#0A0A0A", "#141414", "#1F1F1F", "#292929", "#333", "#3D3D3D", "#474747", "#525252"];
+
 function HEX2RGB(hexCode) {
     hexCode = hexCode.slice(1);
 
@@ -22,22 +24,44 @@ function HEX2RGB(hexCode) {
     return value;
 }
 
-function setColors(className) {
-    let classItem = document.getElementsByClassName(className);
-
-    for (let index = 0; index < classItem.length; index++) {
-        let parentElement = classItem[index].parentElement;
-        
-        for (let secondIndex = 0; secondIndex <= 7; secondIndex++) {
-            let bodyProperty = getComputedStyle(document.body).getPropertyValue(`--black-${secondIndex}`).toString().trim();
-            
-            if (getComputedStyle(document.getElementById(parentElement.id)).backgroundColor == HEX2RGB(bodyProperty)) {
-                classItem[index].style.setProperty(`background-color`,  getComputedStyle(document.body).getPropertyValue(`--black-${secondIndex + 1}`));
-                classItem[index].style.setProperty(`box-shadow`, `1px 1px 5px ${getComputedStyle(document.body).getPropertyValue(`--black-${secondIndex - 1}`)}`);
+function defineBackground(selectedItem, parentStyle) {
+    if (parentStyle.backgroundColor == undefined || parentStyle.backgroundColor == "" || parentStyle.backgroundColor == null || parentStyle.backgroundColor == "rgba(0, 0, 0, 0)") {
+        selectedItem.style.backgroundColor = backgroundPallete[1];
+    }
+    else {
+        for (let secondIndex = 0; secondIndex < backgroundPallete.length; secondIndex++) {
+            if (parentStyle.backgroundColor == HEX2RGB(backgroundPallete[secondIndex])) {
+                selectedItem.style.backgroundColor = backgroundPallete[secondIndex + 1];
                 break;
             }
         }
     }
 }
 
-setColors(`button`);
+function setColors(selectedItem, className = true) {
+
+    let selection = (className) ? document.getElementsByClassName(selectedItem) : document.getElementById(selectedItem);
+    
+    if (className && selection.length > 0) {
+        for (let index = 0; index < selection.length; index++) {
+            let parentElement = selection[index].parentElement;
+            let parentStyle = getComputedStyle(parentElement);
+            
+            defineBackground(selection[index], parentStyle);
+        }
+    }
+
+    else if (!className && selection != null) {
+        let parentElement = selection.parentElement;
+        let parentStyle = getComputedStyle(parentElement);
+
+        defineBackground(selection, parentStyle);
+    }
+
+}
+
+function setShadows(selectedItem, xDirection, yDirection, blur, className = true) {} /* 1px 1px 5px */
+
+setColors("main-container", false);
+setColors("container");
+setColors("button");
