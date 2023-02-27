@@ -1,22 +1,16 @@
 var currentTheme = [];
 
-async function setTheme(themeName) {
+function setTheme(coolorsUrl) {
 
-    let response = await fetch(`https://raw.githubusercontent.com/Hoyasumii/EmiPi/web-development/wwwroot/themes/${themeName}.json`);
-    let data = await response.json();
+    coolorsUrl = coolorsUrl.split(`/`);
+    coolorsUrl = coolorsUrl[coolorsUrl.length - 1].toUpperCase().split(`-`);
 
-    return data;
+    coolorsUrl = coolorsUrl.map(item => item = `#${item}`);
 
+    return coolorsUrl;
 }
 
-let teste = [];
-
-let item = setTheme(`dark-theme`).then(function(data) {
-    teste.push(data);
-});
-
-console.log(teste);
-
+console.log(currentTheme);
 
 function HEX2RGB(hexCode) {
     hexCode = hexCode.slice(1);
@@ -126,19 +120,7 @@ function setShadows(selectedItem, xDirection, yDirection, blur, className = true
 
 
 
-// currentTheme.forEach(item => console.log(item));
+currentTheme = setTheme(`https://coolors.co/palette/0a0a0a-141414-1f1f1f-292929-333333-3d3d3d-474747-525252`);
 
-// let values = currentTheme.map((item) => console.log(item));
-
-// console.log(typeof values);
-// console.log(values);
-// currentTheme = Array.apply(currentTheme);
-
-
-// console.log(currentTheme[0]);
-
-// console.log(`comecou o resto`)
-// console.log(currentTheme);
-
-// setColors("main-container", false);
-// setColors("button");
+setColors("main-container", false);
+setColors("button");
