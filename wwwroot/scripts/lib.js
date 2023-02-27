@@ -1,25 +1,21 @@
-let currentTheme = Array();
+var currentTheme = [];
 
-function setTheme(themeName) {
-    let returnValue = [];
+async function setTheme(themeName) {
 
-    let teste = fetch(`https://raw.githubusercontent.com/Hoyasumii/EmiPi/web-development/wwwroot/themes/${themeName}.json`, {method: `GET`, }).then(response => response.json()).then(function(data) {
-        // console.log(typeof data);
-        
-        for (let index = 0; index < data.length; index++) {
-            returnValue.push(data[index]);
-        }
+    let response = await fetch(`https://raw.githubusercontent.com/Hoyasumii/EmiPi/web-development/wwwroot/themes/${themeName}.json`);
+    let data = await response.json();
 
-        // console.log(Object.values(data));
-        
-        // var userid = JSON.parse(data);
-        // console.log(userid);
-        // returnValue.concat(Object.values(data));
-    });
-    
-    console.log(Object.keys(returnValue));
+    return data;
 
 }
+
+let teste = [];
+
+let item = setTheme(`dark-theme`).then(function(data) {
+    teste.push(data);
+});
+
+console.log(teste);
 
 
 function HEX2RGB(hexCode) {
@@ -125,8 +121,12 @@ function setShadows(selectedItem, xDirection, yDirection, blur, className = true
     // Ele vai pegar o backgroundColor do pai e vai pegar a cor anterior dele na palheta
 } // 1px 1px 5px */
 
-setTheme(`dark-theme`)
-// console.log(currentTheme);
+// let x = setTheme(`dark-theme`);
+// console.log(`oi`)
+
+
+
+// currentTheme.forEach(item => console.log(item));
 
 // let values = currentTheme.map((item) => console.log(item));
 
