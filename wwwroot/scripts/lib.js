@@ -10,8 +10,6 @@ function setTheme(coolorsUrl) {
     return coolorsUrl;
 }
 
-console.log(currentTheme);
-
 function HEX2RGB(hexCode) {
     hexCode = hexCode.slice(1);
 
@@ -36,11 +34,7 @@ function HEX2RGB(hexCode) {
     return value;
 }
 
-/* define (selectedItem, parent, background = true, additionalParameters = "") */
-
 function defineBackground(selectedItem, parent) {
-
-    // console.log(currentTheme);
 
     let parentStyle = getComputedStyle(parent);
 
@@ -71,9 +65,25 @@ function defineBackground(selectedItem, parent) {
     }
 }
 
-// function defineShadow(selectedItem, parent, additionalParameters) {
+function defineShadow(selectedItem, parent, additionalParameters) {
 
-// }
+    let parentStyle = getComputedStyle(parent);
+
+    if (parentStyle.backgroundColor == undefined || parentStyle.backgroundColor == "" || parentStyle.backgroundColor == null || parentStyle.backgroundColor == "rgba(0, 0, 0, 0)") {
+
+        let grandfather = parent.parentElement;
+        parentStyle = getComputedStyle(grandfather);
+
+    }
+
+    for (let index = 0; index < currentTheme.length; index++) {
+        if (parentStyle.backgroundColor == HEX2RGB(currentTheme[index])) {
+            selectedItem.style.setProperty(`box-shadow`, `${additionalParameters} ${currentTheme[index - 1]}`)
+        }
+    }
+
+
+}
 
 function setColors (selectedItem, className = true, background = true, additionalParameters = "") {
 
@@ -87,6 +97,7 @@ function setColors (selectedItem, className = true, background = true, additiona
                 defineBackground(selection[index], parentElement);
             }
             else {
+                // console.log(`rodou`);
                 defineShadow(selection[index], parentElement, additionalParameters);
             }
 
@@ -104,23 +115,9 @@ function setColors (selectedItem, className = true, background = true, additiona
         }
     }
 }
-/* 
-function setShadows(selectedItem, xDirection, yDirection, blur, className = true) {
-
-    let selection = (className) ? document.getElementsByClassName(selectedItem) : document.getElementById(selectedItem);
-
-
-
-
-    // Ele vai pegar o backgroundColor do pai e vai pegar a cor anterior dele na palheta
-} // 1px 1px 5px */
-
-// let x = setTheme(`dark-theme`);
-// console.log(`oi`)
-
-
 
 currentTheme = setTheme(`https://coolors.co/palette/0a0a0a-141414-1f1f1f-292929-333333-3d3d3d-474747-525252`);
 
 setColors("main-container", false);
 setColors("button");
+setColors(`button`, true, false, `1px 1px 5px`);
