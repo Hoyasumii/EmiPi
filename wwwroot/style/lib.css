@@ -3,7 +3,7 @@
 
 :root {
     --primary-font-color: #BBB;
-    --secondary-font-color: #CCC;
+    --secondary-font-color: #999;
 }
 
 * {
@@ -37,4 +37,12 @@
 
 .button:active {
     filter: brightness(1.5);
+}
+
+.title {
+    color: var(--primary-font-color);
+}
+
+.text {
+    color: var(--secondary-font-color);
 }
