@@ -1,5 +1,6 @@
 let backgroundPallete = ["#0A0A0A", "#141414", "#1F1F1F", "#292929", "#333", "#3D3D3D", "#474747", "#525252"];
 
+
 function HEX2RGB(hexCode) {
     hexCode = hexCode.slice(1);
 
@@ -23,6 +24,8 @@ function HEX2RGB(hexCode) {
     let value = `rgb(${parseInt(red, 16)}, ${parseInt(green, 16)}, ${parseInt(blue, 16)})`;
     return value;
 }
+
+/* define (selectedItem, parent, background = true, additionalParameters = "") */
 
 function defineBackground(selectedItem, parent) {
 
@@ -55,30 +58,49 @@ function defineBackground(selectedItem, parent) {
     }
 }
 
-function setColors(selectedItem, className = true) {
+// function defineShadow(selectedItem, parent, additionalParameters) {
+
+// }
+
+function setColors (selectedItem, className = true, background = true, additionalParameters = "") {
 
     let selection = (className) ? document.getElementsByClassName(selectedItem) : document.getElementById(selectedItem);
     
     if (className && selection.length > 0) {
         for (let index = 0; index < selection.length; index++) {
             let parentElement = selection[index].parentElement;
-            
-            defineBackground(selection[index], parentElement);
+
+            if (background) {
+                defineBackground(selection[index], parentElement);
+            }
+            else {
+                defineShadow(selection[index], parentElement, additionalParameters);
+            }
+
         }
     }
 
     else if (!className && selection != null) {
         let parentElement = selection.parentElement;
-
-        defineBackground(selection, parentElement);
+        
+        if (background) {
+            defineBackground(selection, parentElement);
+        }
+        else {
+            defineShadow(selection, parentElement, additionalParameters);
+        }
     }
-
 }
-
+/* 
 function setShadows(selectedItem, xDirection, yDirection, blur, className = true) {
 
+    let selection = (className) ? document.getElementsByClassName(selectedItem) : document.getElementById(selectedItem);
+
+
+
+
     // Ele vai pegar o backgroundColor do pai e vai pegar a cor anterior dele na palheta
-} /* 1px 1px 5px */
+} // 1px 1px 5px */
 
 setColors("main-container", false);
 setColors("button");
