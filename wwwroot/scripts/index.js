@@ -1,4 +1,4 @@
-setColors("container");
+// setColors("container");
 
 // window[`setColors`]("container")
 

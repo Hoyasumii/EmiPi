@@ -1,4 +1,25 @@
-let backgroundPallete = ["#0A0A0A", "#141414", "#1F1F1F", "#292929", "#333", "#3D3D3D", "#474747", "#525252"];
+let currentTheme = Array();
+
+function setTheme(themeName) {
+    let returnValue = [];
+
+    let teste = fetch(`https://raw.githubusercontent.com/Hoyasumii/EmiPi/web-development/wwwroot/themes/${themeName}.json`, {method: `GET`, }).then(response => response.json()).then(function(data) {
+        // console.log(typeof data);
+        
+        for (let index = 0; index < data.length; index++) {
+            returnValue.push(data[index]);
+        }
+
+        // console.log(Object.values(data));
+        
+        // var userid = JSON.parse(data);
+        // console.log(userid);
+        // returnValue.concat(Object.values(data));
+    });
+    
+    console.log(Object.keys(returnValue));
+
+}
 
 
 function HEX2RGB(hexCode) {
@@ -29,19 +50,21 @@ function HEX2RGB(hexCode) {
 
 function defineBackground(selectedItem, parent) {
 
+    // console.log(currentTheme);
+
     let parentStyle = getComputedStyle(parent);
 
     if (parentStyle.backgroundColor == undefined || parentStyle.backgroundColor == "" || parentStyle.backgroundColor == null || parentStyle.backgroundColor == "rgba(0, 0, 0, 0)") {
         if (selectedItem.id == `main-container`) {
-            selectedItem.style.backgroundColor = backgroundPallete[1];
+            selectedItem.style.backgroundColor = currentTheme[1];
         }
         else {
             let grandfather = parent.parentElement;
             let grandfatherStyle = getComputedStyle(grandfather);
 
-            for (let index = 0; index < backgroundPallete.length; index++) {
-                if (grandfatherStyle.backgroundColor == HEX2RGB(backgroundPallete[index])) {
-                    selectedItem.style.backgroundColor = backgroundPallete[index + 1];
+            for (let index = 0; index < currentTheme.length; index++) {
+                if (grandfatherStyle.backgroundColor == HEX2RGB(currentTheme[index])) {
+                    selectedItem.style.backgroundColor = currentTheme[index + 1];
                     break;
                 }
             }
@@ -49,9 +72,9 @@ function defineBackground(selectedItem, parent) {
         
     }
     else {
-        for (let index = 0; index < backgroundPallete.length; index++) {
-            if (parentStyle.backgroundColor == HEX2RGB(backgroundPallete[index])) {
-                selectedItem.style.backgroundColor = backgroundPallete[index + 1];
+        for (let index = 0; index < currentTheme.length; index++) {
+            if (parentStyle.backgroundColor == HEX2RGB(currentTheme[index])) {
+                selectedItem.style.backgroundColor = currentTheme[index + 1];
                 break;
             }
         }
@@ -102,5 +125,20 @@ function setShadows(selectedItem, xDirection, yDirection, blur, className = true
     // Ele vai pegar o backgroundColor do pai e vai pegar a cor anterior dele na palheta
 } // 1px 1px 5px */
 
-setColors("main-container", false);
-setColors("button");
+setTheme(`dark-theme`)
+// console.log(currentTheme);
+
+// let values = currentTheme.map((item) => console.log(item));
+
+// console.log(typeof values);
+// console.log(values);
+// currentTheme = Array.apply(currentTheme);
+
+
+// console.log(currentTheme[0]);
+
+// console.log(`comecou o resto`)
+// console.log(currentTheme);
+
+// setColors("main-container", false);
+// setColors("button");
