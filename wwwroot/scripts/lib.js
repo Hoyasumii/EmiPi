@@ -24,14 +24,31 @@ function HEX2RGB(hexCode) {
     return value;
 }
 
-function defineBackground(selectedItem, parentStyle) {
+function defineBackground(selectedItem, parent) {
+
+    let parentStyle = getComputedStyle(parent);
+
     if (parentStyle.backgroundColor == undefined || parentStyle.backgroundColor == "" || parentStyle.backgroundColor == null || parentStyle.backgroundColor == "rgba(0, 0, 0, 0)") {
-        selectedItem.style.backgroundColor = backgroundPallete[1];
+        if (selectedItem.id == `main-container`) {
+            selectedItem.style.backgroundColor = backgroundPallete[1];
+        }
+        else {
+            let grandfather = parent.parentElement;
+            let grandfatherStyle = getComputedStyle(grandfather);
+
+            for (let index = 0; index < backgroundPallete.length; index++) {
+                if (grandfatherStyle.backgroundColor == HEX2RGB(backgroundPallete[index])) {
+                    selectedItem.style.backgroundColor = backgroundPallete[index + 1];
+                    break;
+                }
+            }
+        }
+        
     }
     else {
-        for (let secondIndex = 0; secondIndex < backgroundPallete.length; secondIndex++) {
-            if (parentStyle.backgroundColor == HEX2RGB(backgroundPallete[secondIndex])) {
-                selectedItem.style.backgroundColor = backgroundPallete[secondIndex + 1];
+        for (let index = 0; index < backgroundPallete.length; index++) {
+            if (parentStyle.backgroundColor == HEX2RGB(backgroundPallete[index])) {
+                selectedItem.style.backgroundColor = backgroundPallete[index + 1];
                 break;
             }
         }
@@ -45,23 +62,23 @@ function setColors(selectedItem, className = true) {
     if (className && selection.length > 0) {
         for (let index = 0; index < selection.length; index++) {
             let parentElement = selection[index].parentElement;
-            let parentStyle = getComputedStyle(parentElement);
             
-            defineBackground(selection[index], parentStyle);
+            defineBackground(selection[index], parentElement);
         }
     }
 
     else if (!className && selection != null) {
         let parentElement = selection.parentElement;
-        let parentStyle = getComputedStyle(parentElement);
 
-        defineBackground(selection, parentStyle);
+        defineBackground(selection, parentElement);
     }
 
 }
 
-function setShadows(selectedItem, xDirection, yDirection, blur, className = true) {} /* 1px 1px 5px */
+function setShadows(selectedItem, xDirection, yDirection, blur, className = true) {
+
+    // Ele vai pegar o backgroundColor do pai e vai pegar a cor anterior dele na palheta
+} /* 1px 1px 5px */
 
 setColors("main-container", false);
-setColors("container");
 setColors("button");
