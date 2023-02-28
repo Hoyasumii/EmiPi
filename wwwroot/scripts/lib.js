@@ -1,5 +1,5 @@
 var currentTheme = [];
-1
+
 function setTheme(coolorsUrl) {
 
     coolorsUrl = coolorsUrl.split(`/`);
@@ -95,7 +95,6 @@ function setColors (selectedItem, className = true, background = true, additiona
                 defineBackground(selection[index], parentElement);
             }
             else {
-                // console.log(`rodou`);
                 defineShadow(selection[index], parentElement, additionalParameters);
             }
 
