@@ -31,6 +31,12 @@ main {
     }
 }
 
+@media (max-width: 600px) {
+    .form {
+        width: 65vw;
+    }
+}
+
 @media (max-width: 426px) {
     .form {
         width: 75vw;
