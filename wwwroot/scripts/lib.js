@@ -1,5 +1,5 @@
 var currentTheme = [];
-
+1
 function setTheme(coolorsUrl) {
 
     coolorsUrl = coolorsUrl.split(`/`);
@@ -81,8 +81,6 @@ function defineShadow(selectedItem, parent, additionalParameters) {
             selectedItem.style.setProperty(`box-shadow`, `${additionalParameters} ${currentTheme[index - 1]}`)
         }
     }
-
-
 }
 
 function setColors (selectedItem, className = true, background = true, additionalParameters = "") {
@@ -118,6 +116,19 @@ function setColors (selectedItem, className = true, background = true, additiona
 
 currentTheme = setTheme(`https://coolors.co/palette/0a0a0a-141414-1f1f1f-292929-333333-3d3d3d-474747-525252`);
 
+// Base Components
 setColors("main-container", false);
+setColors("container");
+setColors(`form`);
+setColors(`form`, true, false, `1px 1px 5px`);
+setColors(`card`);
+setColors(`card`, true, false, `1px 1px 5px`)
+
+// Components
 setColors("button");
 setColors(`button`, true, false, `1px 1px 5px`);
+setColors(`form-container`);
+setColors(`form-container`, true, false, `1px 1px 5px`);
+setColors(`form-label`);
+setColors(`form-checkbox`);
+setColors(`form-checkbox`, true, false, `1px 1px 5px`);

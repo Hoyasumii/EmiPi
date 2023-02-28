@@ -4,6 +4,7 @@
 :root {
     --primary-font-color: #BBB;
     --secondary-font-color: #999;
+    --tertiary-font-color: #666;
 }
 
 * {
@@ -45,4 +46,85 @@
 
 .text {
     color: var(--secondary-font-color);
+}
+
+.card {
+    border-radius: 5px;
+}
+
+.form {
+    border-radius: 5px;
+    padding: 15px;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    gap: 10px;
+}
+
+.form .button {
+    width: 100%;
+}
+
+.form-container {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: stretch;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.form-label {
+    padding: 5px;
+    border-radius: 5px 0px 0px 5px;
+}
+
+.form-input {
+    border-radius: 0px 5px 5px 0px;
+    width: 100%;
+    padding: 5px;
+    background-color: inherit;
+    outline: none;
+}
+
+.form-container-2 {
+    display: flex;
+    width: 100%;
+    flex-flow: row nowrap;
+    gap: 5px;
+}
+
+.form-checkbox {
+    appearance: none;
+    min-width: 1.4em;
+    max-width: 1.4em;
+    min-height: 1.4em;
+    max-height: 1.4em;
+    border-radius: 3px;
+    transition: 0.4s;
+    display: grid;
+    place-content: center;
+    outline: none;
+}
+
+.form-checkbox::before {
+    content: "";
+    width: 1em;
+    height: 1em;
+    transform: scale(0);
+    transition: 120ms transform ease-in-out;
+    background-color: var(--primary-font-color);
+    clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+}
+
+.form-checkbox:hover {
+    cursor: pointer;
+    filter: brightness(1.1);
+}
+
+.form-checkbox:checked::before {
+    transform: scale(1);
+}
+
+.form-checkbox-label {
+    font-size: 0.8em;
 }
