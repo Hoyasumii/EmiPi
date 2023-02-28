@@ -24,10 +24,18 @@
     'opsz' 48
 }
 
+#main-container {
+    min-height: 100vh;
+    min-width: 100vw;
+    display: flex;
+    flex-flow: column nowrap;
+}
+
 .button {
     text-decoration: none;
     border-radius: 5px;
     padding: 5px 15px;
+    filter: brightness(1);
     transition: 0.3s filter;
 }
 
@@ -137,4 +145,33 @@
 
 .password-visibility:hover {
     cursor: pointer;
+}
+
+.search-container {
+    border-radius: 5px;
+    width: 35vw;
+    display: flex;
+}
+
+.search-input {
+    background-color: transparent;
+    outline: none;
+    width: 100%;
+    text-align: center;
+}
+
+.search-button {
+    padding: 3px 5px;
+    border-radius: 0px 5px 5px 0px;
+    filter: brightness(1);
+    transition: 0.3s filter;
+}
+
+.search-button:hover {
+    cursor: pointer;
+    filter: brightness(1.3);
+}
+
+.search-button:active {
+    filter: brightness(1.5);
 }
