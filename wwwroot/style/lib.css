@@ -128,3 +128,13 @@
 .form-checkbox-label {
     font-size: 0.8em;
 }
+
+.password-visibility {
+    display: none;
+    padding: 5px;
+    background-color: transparent;
+}
+
+.password-visibility:hover {
+    cursor: pointer;
+}

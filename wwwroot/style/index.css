@@ -8,6 +8,11 @@
     gap: 10px;
 }
 
+#footer {
+    position: sticky;
+    bottom: 0;
+}
+
 .container {
     width: 100%;
 }
@@ -17,6 +22,7 @@
 }
 
 main {
+    justify-self: center;
     display: flex;
     gap: 15px;
 }

@@ -53,7 +53,6 @@ function defineBackground(selectedItem, parent) {
                 }
             }
         }
-        
     }
     else {
         for (let index = 0; index < currentTheme.length; index++) {
@@ -114,6 +113,11 @@ function setColors (selectedItem, className = true, background = true, additiona
 }
 
 currentTheme = setTheme(`https://coolors.co/palette/0a0a0a-141414-1f1f1f-292929-333333-3d3d3d-474747-525252`);
+
+// let visibilityPassword = document.getElementById(`visibility-password`);
+// .addEventListener(`click`, function () {
+    
+// });
 
 // Base Components
 setColors("main-container", false);
