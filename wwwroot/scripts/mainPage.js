@@ -13,3 +13,5 @@ document.getElementById(`album-c-next`).addEventListener(`click`, () => {
     albumCpos -= 200 + 15;
     carrousselMove(document.getElementById(`album-c`), albumCpos)
 });
+
+// A ideia é: Navegar pelos .nav-container e se o href de algum a for igual ao nome do arquivo da página, adicionar a class material-symbols-outlined e o data-value deles, atribuindo-os ao innerText
