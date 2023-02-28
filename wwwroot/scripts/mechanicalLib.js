@@ -19,22 +19,6 @@ for (let index = 0; index < pvItems.length; index++) {
 
 }
 
-// class Carrousel {
-//     target;
-//     targetStyle;
-//     targetSize;
-//     position = 0;
-//     padding = 15;
-
-//     constructor(target) {
-//         this.target = target;
-//         console.log(target);
-//         this.targetStyle = getComputedStyle(this.target);
-//         this.targetSize = this.targetStyle.width;
-//     }
-
-// }
-
 function carrousselMove(target, actualPosition) {
     let targetStyle = getComputedStyle(target);
     let targetSize = parseFloat(targetStyle.width.slice(0, targetStyle.width.length - 2));
@@ -47,3 +31,11 @@ function carrousselMove(target, actualPosition) {
 
     target.style.transform = `translateX(${actualPosition}px)`; /* TODO: Criar um método para saber a quantidade de itens no carrossel e com base nisso, definir uma posição mínima e máxima */
 }
+
+function generateHeader() {
+
+}
+
+// TODO: Create Header(element, id) -> Você define o Id e nele que você irá estilizar
+// TODO: Create NavContainer -> return nav-container
+// TODO: Create NavItem(href, data-value, text)

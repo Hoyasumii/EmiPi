@@ -110,7 +110,7 @@ function setColors (selectedItem, className = true, background = true, additiona
             defineShadow(selection, parentElement, additionalParameters);
         }
     }
-}
+} /* TODO: Ao invés de ter um parâmetro para definir se é classe ou não, eu vou usar o QuerySelector. Se ele tiver um ponto, ele vai pegar  */
 
 function centralize(element) {
     let parent = element.parentElement;
@@ -125,7 +125,33 @@ function centralize(element) {
 
 }
 
-currentTheme = setTheme(`https://coolors.co/palette/0a0a0a-141414-1f1f1f-292929-333333-3d3d3d-474747-525252`);
+
+function setNavIcon() {
+    let listOfNavC = document.getElementsByClassName(`nav-container`);
+
+    for (let selectedNavContainer = 0; selectedNavContainer < listOfNavC.length; selectedNavContainer++) {
+        let currentNav = listOfNavC[selectedNavContainer];
+
+        let listOfAnchor = currentNav.getElementsByTagName(`a`);
+
+        for (let selectedItem = 0; selectedItem < listOfAnchor.length; selectedItem++) {
+            let htmlFileName = window.location.href;
+            htmlFileName = htmlFileName.split(`/`)
+            htmlFileName = `./${htmlFileName[htmlFileName.length - 1]}`
+
+            if(htmlFileName == listOfAnchor[selectedItem].getAttribute(`href`)) {
+                listOfAnchor[selectedItem].innerText = listOfAnchor[selectedItem].getAttribute(`data-value`);
+                listOfAnchor[selectedItem].className = `material-symbols-outlined`;
+                listOfAnchor[selectedItem].id = `active`;
+                return true;
+            }
+        }
+    }
+}
+
+setNavIcon();
+
+currentTheme = setTheme(`https://coolors.co/0a0a0a-141414-1a1a1a-222222-2b2b2b-333333-3c3c3c-454545`);
 
 window.onresize = (function() {
     clearTimeout(window.resizedFinished);
@@ -156,3 +182,5 @@ setColors(`form-checkbox`, true, false, `1px 1px 5px`);
 setColors(`search-container`);
 setColors(`search-container`, true, false, `1px 1px 5px`);
 setColors(`search-button`);
+setColors(`active`, false, true);
+setColors(`active`, false, false, `1px 1px 5px`)
