@@ -1,4 +1,4 @@
-var currentTheme = [];
+let currentTheme = [];
 
 function setTheme(coolorsUrl) {
 
@@ -113,7 +113,6 @@ function setColors (selectedItem, className = true, background = true, additiona
 }
 
 function centralize(element) {
-    // vou dar o position absolute no filho e no pai, o position relative
     let parent = element.parentElement;
 
     let elementStyle = getComputedStyle(element);
@@ -122,20 +121,19 @@ function centralize(element) {
     parent.style.position = `relative`;
     element.style.position = `absolute`;
 
-    console.log(parentStyle.width);
-
     element.style.left = `${(parentStyle.width.slice(0, parentStyle.width.length - 2) / 2) - (elementStyle.width.slice(0, elementStyle.width.length - 2) / 2)}px`;
 
-    // console.log(parent);
-    console.log(`${(parentStyle.width.slice(0, parentStyle.width.length - 2) / 2) - (elementStyle.width.slice(0, elementStyle.width.length - 2) / 2)}px`);
 }
 
 currentTheme = setTheme(`https://coolors.co/palette/0a0a0a-141414-1f1f1f-292929-333333-3d3d3d-474747-525252`);
 
-// let visibilityPassword = document.getElementById(`visibility-password`);
-// .addEventListener(`click`, function () {
-    
-// });
+window.onresize = (function() {
+    clearTimeout(window.resizedFinished);
+    window.resizedFinished = setTimeout(function(){
+        centralize(document.getElementById(`music-search`));
+    }, 250);
+});
+
 
 // Base Components
 setColors("main-container", false);
@@ -143,7 +141,9 @@ setColors("container");
 setColors(`form`);
 setColors(`form`, true, false, `1px 1px 5px`);
 setColors(`card`);
-setColors(`card`, true, false, `1px 1px 5px`)
+setColors(`card`, true, false, `1px 1px 5px`);
+
+// console.log(document.getElementsByClassName(`card`)[0].style.backgroundColor)
 
 // Components
 setColors("button");
@@ -156,6 +156,3 @@ setColors(`form-checkbox`, true, false, `1px 1px 5px`);
 setColors(`search-container`);
 setColors(`search-container`, true, false, `1px 1px 5px`);
 setColors(`search-button`);
-
-// TODO: Criar um método de auto-ajuste do espaçamento conforme a mudança do tamanho da tela
-// Dava pra eu criar um array de elementos que estão usando centralize, aí sempre que fosse fazer essa mudança, ele rodaria o centralize nessas funções

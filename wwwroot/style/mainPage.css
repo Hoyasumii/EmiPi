@@ -1,4 +1,5 @@
 #main-area {
+    background-color: inherit;
     padding: 15px;
 }
 
@@ -9,7 +10,7 @@
 #header {
     display: flex;
     flex-flow: row wrap;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
     position: relative;
 }
@@ -27,4 +28,27 @@
 
 .nav-container a:hover {
     text-decoration: underline;
+}
+
+#main-area {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 15px;
+    background-color: inherit;
+}
+
+#main-area-albums {
+    background-color: inherit;
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 10px;
+}
+
+.carroussel-container {
+    background-color: inherit;
+}
+
+.carroussel-area {
+    background-color: inherit;
+    padding: 5px;
 }

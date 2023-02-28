@@ -175,3 +175,40 @@
 .search-button:active {
     filter: brightness(1.5);
 }
+
+.carroussel-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+}
+
+.carroussel-area {
+    width: 100%;
+    display: flex;
+    gap: 15px;
+    overflow: hidden;
+}
+
+.card {
+    min-width: 200px;
+    min-height: 200px;
+    padding: 10px;
+}
+
+.card-icon {
+    min-width: 100%;
+    aspect-ratio: 1/1;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    /* min-height: 200px; */
+    background-color: pink;
+
+}
+
+.card-title {
+    white-space: nowrap;
+    overflow: hidden;
+    width: 100%;
+}
