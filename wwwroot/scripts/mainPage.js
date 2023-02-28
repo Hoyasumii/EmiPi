@@ -2,4 +2,14 @@ setColors(`header`, false, false, `0px 1px 5px`);
 
 centralize(document.getElementById(`music-search`));
 
-// Ideia para percorrer a string q é ocultada pelo overflow hidden: Se o width dessa string for maior que o tamanho do card, percorrer.
+let albumCpos = 0;
+
+document.getElementById(`album-c-before`).addEventListener(`click`, () => {
+    albumCpos += 200 + 15;
+    carrousselMove(document.getElementById(`album-c`), albumCpos)
+});
+
+document.getElementById(`album-c-next`).addEventListener(`click`, () => {
+    albumCpos -= 200 + 15;
+    carrousselMove(document.getElementById(`album-c`), albumCpos)
+});

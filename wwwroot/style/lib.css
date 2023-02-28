@@ -186,15 +186,32 @@
 
 .carroussel-area {
     width: 100%;
+    overflow-x: hidden;
+}
+
+.carroussel-content {
+    /* width: 100%; */
     display: flex;
     gap: 15px;
-    overflow: hidden;
+    transform: translateX(0);
+    transition: 0.3s transform;
 }
 
 .card {
     min-width: 200px;
     min-height: 200px;
     padding: 10px;
+    user-select: none;
+    transition: 0.3s filter;
+}
+
+.card:hover {
+    cursor: pointer;
+    filter: brightness(1.1);
+}
+
+.card:active {
+    filter: brightness(1.2);
 }
 
 .card-icon {
@@ -202,9 +219,7 @@
     aspect-ratio: 1/1;
     border-radius: 5px;
     margin-bottom: 5px;
-    /* min-height: 200px; */
-    background-color: pink;
-
+    background-color: plum;
 }
 
 .card-title {
