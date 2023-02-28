@@ -1,0 +1,54 @@
+#main-area {
+    background-color: inherit;
+    padding: 15px;
+}
+
+.container {
+    padding: 15px;
+}
+
+#header {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-end;
+    align-items: center;
+    position: relative;
+}
+
+.nav-container {
+    display: flex;
+    flex-flow: row nowrap;
+    gap: 10px;
+    align-items: center;
+}
+
+.nav-container a {
+    text-decoration: none;
+}
+
+.nav-container a:hover {
+    text-decoration: underline;
+}
+
+#main-area {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 15px;
+    background-color: inherit;
+}
+
+#main-area-albums {
+    background-color: inherit;
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 10px;
+}
+
+.carroussel-container {
+    background-color: inherit;
+}
+
+.carroussel-area {
+    background-color: inherit;
+    padding: 5px;
+}

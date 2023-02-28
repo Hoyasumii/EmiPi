@@ -1,5 +1,5 @@
-var currentTheme = [];
-1
+let currentTheme = [];
+
 function setTheme(coolorsUrl) {
 
     coolorsUrl = coolorsUrl.split(`/`);
@@ -53,7 +53,6 @@ function defineBackground(selectedItem, parent) {
                 }
             }
         }
-        
     }
     else {
         for (let index = 0; index < currentTheme.length; index++) {
@@ -95,7 +94,6 @@ function setColors (selectedItem, className = true, background = true, additiona
                 defineBackground(selection[index], parentElement);
             }
             else {
-                // console.log(`rodou`);
                 defineShadow(selection[index], parentElement, additionalParameters);
             }
 
@@ -114,7 +112,28 @@ function setColors (selectedItem, className = true, background = true, additiona
     }
 }
 
+function centralize(element) {
+    let parent = element.parentElement;
+
+    let elementStyle = getComputedStyle(element);
+    let parentStyle = getComputedStyle(parent);
+
+    parent.style.position = `relative`;
+    element.style.position = `absolute`;
+
+    element.style.left = `${(parentStyle.width.slice(0, parentStyle.width.length - 2) / 2) - (elementStyle.width.slice(0, elementStyle.width.length - 2) / 2)}px`;
+
+}
+
 currentTheme = setTheme(`https://coolors.co/palette/0a0a0a-141414-1f1f1f-292929-333333-3d3d3d-474747-525252`);
+
+window.onresize = (function() {
+    clearTimeout(window.resizedFinished);
+    window.resizedFinished = setTimeout(function(){
+        centralize(document.getElementById(`music-search`));
+    }, 250);
+});
+
 
 // Base Components
 setColors("main-container", false);
@@ -122,7 +141,9 @@ setColors("container");
 setColors(`form`);
 setColors(`form`, true, false, `1px 1px 5px`);
 setColors(`card`);
-setColors(`card`, true, false, `1px 1px 5px`)
+setColors(`card`, true, false, `1px 1px 5px`);
+
+// console.log(document.getElementsByClassName(`card`)[0].style.backgroundColor)
 
 // Components
 setColors("button");
@@ -132,3 +153,6 @@ setColors(`form-container`, true, false, `1px 1px 5px`);
 setColors(`form-label`);
 setColors(`form-checkbox`);
 setColors(`form-checkbox`, true, false, `1px 1px 5px`);
+setColors(`search-container`);
+setColors(`search-container`, true, false, `1px 1px 5px`);
+setColors(`search-button`);

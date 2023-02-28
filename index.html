@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EmiPi - Home Page</title>
     <link rel="stylesheet" href="./wwwroot/style/lib.css">
-    <script src="./wwwroot/scripts/lib.js" defer></script>
-    <script src="./wwwroot/scripts/functions.js"></script>
+    <script src="./wwwroot/scripts/visualLib.js" defer></script>
+    <script src="./wwwroot/scripts/mechanicalLib.js" defer></script>
 
     <link rel="stylesheet" href="./wwwroot/style/index.css">
     <script src="wwwroot/scripts/index.js" defer></script> <!-- Toda página terá acesso a seu CSS e JS -->
@@ -19,27 +19,27 @@
             <p class="text">A sua plataforma para ouvir músicas</p>
         </header>
         <main>
-            <form action="" class="form">
+            <form class="form" method="get">
                 <h3 class="title">Informe seus dados</h3>
                 <div class="form-container">
                     <label for="email" class="form-label material-symbols-outlined">mail</label>
-                    <input type="email" class="form-input" id="email" placeholder="Digite o E-mail" required>
+                    <input type="email" class="form-input" id="email" placeholder="Digite o E-mail">
                 </div>
                 <div class="form-container">
                     <label for="" class="form-label material-symbols-outlined">key</label>
                     <input type="password" name="" id="" class="form-input" placeholder="Digite a Senha">
-                    <button></button>
+                    <button type="button" class="password-visibility material-symbols-outlined" id="visibility-password">visibility</button>
                 </div>
                 <div class="form-container-2">
-                    <input type="checkbox" name="" id="" class="form-checkbox">
-                    <label for="" class="form-checkbox-label">Lembrar de mim</label>
+                    <input type="checkbox" name="" id="remember-me" class="form-checkbox">
+                    <label for="remember-me" class="form-checkbox-label">Lembrar de mim</label>
                 </div>
-                <button class="button">Acessar</button>
+                <button type="button" class="button" onclick="redirect(`mainPage`)">Acessar</button>
             </form>
             <!-- TODO: Ideia para concluir quando o projeto estiver quase concluído: Quando o usuário botar o email, se o email constar no banco de dados, esse button terá o innerText alterado para Login; senão, para Cadastrar -->
         </main>
         <footer class="container" id="footer">
-            Feito com ❤️ por Hoyasumii
+            Feito com ❤️ por Hoyasumii <!-- Feito pela equipe bla bla bla -->
         </footer>
     </div>
 </body>

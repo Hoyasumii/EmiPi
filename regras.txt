@@ -1,1 +1,0 @@
-1. Na estruturação de um site, além das classes informadas, o elemento também precisará de um id para que o setColors funcione
